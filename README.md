@@ -1,10 +1,10 @@
 # physics-ml-lab: 2D Heat Diffusion Solver & Neural Surrogate Benchmark
 
-[![CI Test Suite](https://img.shields.io/badge/pytest-71%20passed-brightgreen.svg)](tests/)
+[![Test Results](https://img.shields.io/badge/tests-71%20passed-brightgreen.svg)](tests/)
 [![Python](https://img.shields.io/badge/python-3.12-blue.svg)](pyproject.toml)
 [![Code Style](https://img.shields.io/badge/code%20style-ruff-000000.svg)](pyproject.toml)
 
-A reproducible scientific computing and machine learning laboratory implementing a classical two-dimensional Forward-Time Central-Space (FTCS) finite-difference heat diffusion solver and training a compact residual convolutional neural network (CNN) surrogate to approximate its discrete time-stepping operator.
+2D FTCS heat diffusion solver and PyTorch neural surrogate benchmark with autoregressive rollout evaluation.
 
 > [!NOTE]
 > **Scope & Engineering Clarification:** This repository is a **computational and numerical surrogate benchmark**, designed to study operator learning, multi-step autoregressive stability, physical invariant preservation, and failure modes. It is **not** an experimentally validated real-world thermal simulator for physical hardware.
@@ -139,7 +139,7 @@ The 8 publication figures below demonstrate the workflow, field comparisons, rol
 | Figure 6: Peak Temperature Evolution | Figure 7: Maximum Principle Violation Audit |
 |:---:|:---:|
 | ![Figure 6](outputs/figures/publication/06_gaussian_peak_temperature_evolution.png) | ![Figure 7](outputs/figures/publication/07_negative_temperature_behaviour.png) |
-| *Figure 6: Peak temperature decay for reference vs. one-step surrogate vs. Laplacian-penalized models, highlighting hyper-dissipation.* | *Figure 7: Discrete maximum principle audit showing negative-temperature undershoot ($u_{\min} \to -0.0089\text{ K}$) near the boundary interface.* |
+| *Figure 6: Peak temperature decay for reference vs. one-step surrogate vs. Laplacian-penalized models, highlighting hyper-dissipation.* | *Figure 7: Discrete maximum principle audit showing negative-temperature undershoot ($u_{\min} \to -0.0089\text{ K}$) across rollout steps.* |
 
 ---
 
@@ -292,9 +292,8 @@ We evaluated both unnormalized ($\lambda \in \{0.001, 0.01\}$) and scale-normali
 > By contrast, the baseline MSE model naturally achieves $1.27\%$ relative Laplacian error without explicit derivative regularization.
 
 ### 8.2 Characterized Failure Mode: Discrete Maximum Principle Violation
-- **Observed Behavior:** As shown in Figure 7, when propagating non-negative Gaussian profiles ($u_0 \ge 0$), the neural surrogate develops small negative-temperature undershoot troughs ($u_{\min} \to -0.00887\text{ K}$ by step 100 at $y = 0.02\text{ m}, x = 0.96\text{ m}$) near the boundary interface, whereas the FTCS reference solver strictly satisfies $u \ge 0.000\text{ K}$.
-- **Root Cause:** Standard convolutional layers utilize unconstrained real-valued kernels (having both positive and negative weights and biases). Unlike the FTCS stencil whose weights are guaranteed non-negative ($1 - 4r \ge 0$), linear combinations of unconstrained weights near steep boundary gradients produce localized spatial oscillations that breach non-negativity.
-- **Precision Regarding Cause:** This undershoot is specifically a consequence of unconstrained kernel weights lacking monotonicity constraints near clamped boundaries, and should **not** be confused with boundary layer phenomena or Gibbs phenomenon (which arise from truncated Fourier series at jump discontinuities).
+- **Empirical Observation:** When evaluated on non-negative initial conditions ($u_0 \ge 0$) from the Gaussian test family, the neural surrogate produces negative values during autonomous rollout, violating the discrete maximum principle ($u \ge 0$). At rollout step 100 ($t = 0.50\text{ s}$, with discrete time step $\Delta t = 0.005\text{ s}$), the observed minimum reaches $u_{\min} = -0.00887\text{ K}$, located at grid coordinate $(x = 0.96\text{ m}, y = 0.02\text{ m})$ (grid index $[i=48, j=1]$). In contrast, the numerical FTCS reference solver strictly maintains $u \ge 0.000\text{ K}$ throughout the rollout horizon.
+- **Plausible Explanation:** Standard convolutional kernels have unconstrained real-valued weights and biases, unlike the discrete FTCS stencil whose non-negative convex coefficients ($1 - 4r \ge 0$) guarantee that non-negativity is preserved. Linear combinations of unconstrained weights near steep gradients offer a plausible explanation for the observed negative undershoots; however, this is a working hypothesis rather than a demonstrated causal analysis.
 
 ---
 
@@ -305,7 +304,7 @@ We evaluated both unnormalized ($\lambda \in \{0.001, 0.01\}$) and scale-normali
 3. **Limited Initial-Condition Families:** Data is restricted to synthetic Fourier-mode superpositions and Gaussian heat sources across 40 simulations.
 4. **No Experimental Validation:** All benchmarks are evaluated against numerical FTCS simulations; no comparison with experimental physical thermal measurements has been conducted.
 5. **Autoregressive Error Compounding:** Although rollout error remains bounded at $3.681\%$ over 100 steps ($0.5\text{ s}$), errors compound monotonically with rollout length.
-6. **Maximum Principle Violations:** Unconstrained convolutional kernels generate localized negative undershoots ($u_{\min} \approx -0.0089\text{ K}$) for strictly non-negative initial conditions.
+6. **Maximum Principle Violations:** Localized negative undershoots ($u_{\min} \to -0.0089\text{ K}$ at step 100) emerge during rollout for strictly non-negative initial profiles.
 7. **No Universal Stability Guarantee:** Stability over 100 steps is an empirical finding on the test set, not an analytical guarantee for arbitrary initial conditions or indefinite horizons.
 
 ---
@@ -315,8 +314,8 @@ We evaluated both unnormalized ($\lambda \in \{0.001, 0.01\}$) and scale-normali
 ### 10.1 Environment Setup
 ```bash
 # Clone repository
-git clone https://github.com/<username>/physics-ml-lab.git
-cd physics-ml-lab
+git clone https://github.com/VivekJJadav/Physics-ML-Lab-2D-Heat-Diffusion-Neural-Surrogate.git
+cd Physics-ML-Lab-2D-Heat-Diffusion-Neural-Surrogate
 
 # Create Python 3.12 virtual environment
 python3.12 -m venv .venv
