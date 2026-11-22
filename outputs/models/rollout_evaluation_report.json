@@ -1,0 +1,258 @@
+{
+  "summary": {
+    "num_test_simulations": 6,
+    "num_steps": 10,
+    "simulation_duration": 1.0,
+    "1step_mean_relative_l2": 0.027099169344550224,
+    "final_mean_relative_l2": 0.15723874231814206,
+    "1step_mean_max_error": 0.035226699653586394,
+    "final_mean_max_error": 0.04349865196241611,
+    "error_amplification_ratio": 5.802345463764687
+  },
+  "subsets": {
+    "fourier": {
+      "count": 4,
+      "mean_relative_l2": [
+        0.0,
+        0.030469581058232175,
+        0.047194565142399385,
+        0.06281954415892292,
+        0.07929532653459535,
+        0.09675553476795704,
+        0.11522185311982731,
+        0.13491974907736243,
+        0.15630014625119465,
+        0.18004253182698393,
+        0.20707740620263748
+      ],
+      "std_relative_l2": [
+        0.0,
+        0.014050717568513066,
+        0.016989832681164156,
+        0.02147264349019454,
+        0.02810776553684024,
+        0.036402422960191826,
+        0.04619365682860891,
+        0.057598746560058034,
+        0.07095950940833624,
+        0.0868374244597916,
+        0.10603485203738246
+      ],
+      "final_mean_relative_l2": 0.20707740620263748,
+      "mean_max_error": [
+        0.0,
+        0.044271689420630034,
+        0.05280881494563936,
+        0.061909581870329335,
+        0.0661545347597911,
+        0.06704297426325379,
+        0.0668894297444351,
+        0.06551910332285862,
+        0.06356738102825052,
+        0.06154938908136348,
+        0.05930426516326146
+      ],
+      "final_mean_max_error": 0.05930426516326146
+    },
+    "gaussian": {
+      "count": 2,
+      "mean_relative_l2": [
+        0.0,
+        0.02035834591718633,
+        0.02899643921342308,
+        0.0343237124888046,
+        0.03827591481002235,
+        0.041674469888813084,
+        0.044870687018801945,
+        0.048012906567689924,
+        0.051162307515015625,
+        0.05434262046190581,
+        0.0575614145491512
+      ],
+      "std_relative_l2": [
+        0.0,
+        0.009052879247063475,
+        0.011743004175062983,
+        0.013497837116124473,
+        0.014978634872198478,
+        0.016392297918591373,
+        0.01777511916567786,
+        0.019111577856999525,
+        0.02038079413456999,
+        0.021569511627966775,
+        0.022672514205045725
+      ],
+      "final_mean_relative_l2": 0.0575614145491512,
+      "mean_max_error": [
+        0.0,
+        0.017136720119499113,
+        0.015326711734985204,
+        0.015285270128628375,
+        0.014516612242075011,
+        0.01344847575154108,
+        0.012511233833095187,
+        0.011887305552383001,
+        0.011779585226330089,
+        0.011754138357180796,
+        0.011887425560725414
+      ],
+      "final_mean_max_error": 0.011887425560725414
+    }
+  },
+  "timestamps": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7000000000000001,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "mean_relative_l2": [
+    0.0,
+    0.027099169344550224,
+    0.041128523166073946,
+    0.05332093360221682,
+    0.06562218929307102,
+    0.07839517980824239,
+    0.09177146441948551,
+    0.10595080157413826,
+    0.12125420000580163,
+    0.13814256137195788,
+    0.15723874231814206
+  ],
+  "mean_max_error": [
+    0.0,
+    0.035226699653586394,
+    0.04031478054208797,
+    0.046368144623095686,
+    0.048941893920552405,
+    0.04917814142601621,
+    0.04876336444065513,
+    0.04764183739936676,
+    0.04630478242761038,
+    0.04495097217330259,
+    0.04349865196241611
+  ],
+  "energy_diagnostics": [
+    {
+      "simulation_id": "sim_gaussian_0019",
+      "generator_type": "gaussian",
+      "is_l2_energy_monotonic": true,
+      "max_energy_violation": -0.0006623997993990792,
+      "total_energy_drift_pct": -16.574689038799495
+    },
+    {
+      "simulation_id": "sim_fourier_0003",
+      "generator_type": "fourier",
+      "is_l2_energy_monotonic": true,
+      "max_energy_violation": -0.0006154523832633885,
+      "total_energy_drift_pct": -91.39089915139316
+    },
+    {
+      "simulation_id": "sim_gaussian_0014",
+      "generator_type": "gaussian",
+      "is_l2_energy_monotonic": true,
+      "max_energy_violation": -0.00023149309157478263,
+      "total_energy_drift_pct": -7.91449227679093
+    },
+    {
+      "simulation_id": "sim_fourier_0002",
+      "generator_type": "fourier",
+      "is_l2_energy_monotonic": true,
+      "max_energy_violation": -0.0013236317542627543,
+      "total_energy_drift_pct": 6.774544446991651e+16
+    },
+    {
+      "simulation_id": "sim_fourier_0014",
+      "generator_type": "fourier",
+      "is_l2_energy_monotonic": true,
+      "max_energy_violation": -0.005181353168001397,
+      "total_energy_drift_pct": -3.2577434370788024e+16
+    },
+    {
+      "simulation_id": "sim_fourier_0009",
+      "generator_type": "fourier",
+      "is_l2_energy_monotonic": true,
+      "max_energy_violation": -0.001583219291794567,
+      "total_energy_drift_pct": -102.16375872699585
+    }
+  ],
+  "max_principle_diagnostics": [
+    {
+      "simulation_id": "sim_gaussian_0019",
+      "generator_type": "gaussian",
+      "is_adherent": false,
+      "global_max_violation": 0.0,
+      "global_min_violation": 0.007575366646051407,
+      "spurious_heating_steps": []
+    },
+    {
+      "simulation_id": "sim_fourier_0003",
+      "generator_type": "fourier",
+      "is_adherent": true,
+      "global_max_violation": 0.0,
+      "global_min_violation": 0.0,
+      "spurious_heating_steps": []
+    },
+    {
+      "simulation_id": "sim_gaussian_0014",
+      "generator_type": "gaussian",
+      "is_adherent": false,
+      "global_max_violation": 0.0,
+      "global_min_violation": 0.009003566578030586,
+      "spurious_heating_steps": []
+    },
+    {
+      "simulation_id": "sim_fourier_0002",
+      "generator_type": "fourier",
+      "is_adherent": true,
+      "global_max_violation": 0.0,
+      "global_min_violation": 0.0,
+      "spurious_heating_steps": []
+    },
+    {
+      "simulation_id": "sim_fourier_0014",
+      "generator_type": "fourier",
+      "is_adherent": true,
+      "global_max_violation": 0.0,
+      "global_min_violation": 0.0,
+      "spurious_heating_steps": []
+    },
+    {
+      "simulation_id": "sim_fourier_0009",
+      "generator_type": "fourier",
+      "is_adherent": true,
+      "global_max_violation": 0.0,
+      "global_min_violation": 0.0,
+      "spurious_heating_steps": []
+    }
+  ],
+  "ood_stress_tests": {
+    "high_frequency": {
+      "description": "High-frequency Fourier modes (m,n in {5,6})",
+      "1step_rel_l2": 0.1938563627469974,
+      "final_rel_l2": 14.471693745506649,
+      "final_max_error": 0.022799657762531365,
+      "max_principle_adherent": true
+    },
+    "sharp_gradient": {
+      "description": "Sharp localized Gaussian (sigma=0.02)",
+      "1step_rel_l2": 0.994467966332684,
+      "final_rel_l2": 1.4440759576277866,
+      "final_max_error": 0.12946051109848808,
+      "max_principle_adherent": false
+    },
+    "high_amplitude": {
+      "description": "High amplitude Gaussian (A=2.5)",
+      "1step_rel_l2": 0.07854050874620411,
+      "final_rel_l2": 0.11698827688903238,
+      "final_max_error": 0.16340867477940024,
+      "max_principle_adherent": false
+    }
+  }
+}

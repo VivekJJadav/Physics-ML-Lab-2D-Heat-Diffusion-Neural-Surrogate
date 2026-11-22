@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Testing and linting caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+
+# IDE and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Experiment data and simulation outputs
+# Exclude large binary simulation datasets (regenerate with experiments/generate_onestep_dataset.py)
+outputs/datasets/**/*.npz
+
+# Exclude intermediate / scratch figures (keep publication figures tracked for documentation)
+outputs/figures/*.png
+!outputs/figures/publication/
+!outputs/figures/publication/*.png
+
+# Model checkpoints (680 KB each; can be committed or released via GitHub Releases)
+# Uncomment to exclude binary weights from git tracking:
+# outputs/models/*.pt

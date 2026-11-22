@@ -1,0 +1,25 @@
+{
+  "best_epoch": 58,
+  "best_val_loss": 1.776708791112469e-05,
+  "validation_metrics": {
+    "mse": 1.776708791112469e-05,
+    "rmse": 0.004215102360693591,
+    "relative_l2": 0.028114979044996602
+  },
+  "overall_test_metrics": {
+    "mse": 1.6359583014491363e-05,
+    "rmse": 0.004044698136386863,
+    "relative_l2": 0.0242047811511283
+  },
+  "fourier_test_metrics": {
+    "mse": 2.1497306534001837e-05,
+    "rmse": 0.00463651879474265,
+    "relative_l2": 0.025270603739431095
+  },
+  "gaussian_test_metrics": {
+    "mse": 7.794506942104817e-07,
+    "rmse": 0.0008828650486968446,
+    "relative_l2": 0.01133351092876889
+  },
+  "num_parameters": 56097
+}
